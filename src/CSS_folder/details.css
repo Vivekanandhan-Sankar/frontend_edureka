@@ -1,0 +1,145 @@
+.image{
+    height: 350px;
+}
+.name {
+    height: 43px;
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.53;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+}
+
+.reactTab {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+    border:none;
+    display: inline-block;
+    /* border: 1px solid transparent; */
+    /* border-bottom: none; */
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+    border-bottom: solid 3px #ce0505;
+}
+.subheading{
+    font-family: Poppins;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.53;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+}
+.cuisine{
+    font-family: Poppins;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+}
+.ph_no{
+    color:red;
+    font-family: Poppins;font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+}
+.restarauntName{
+    font-family: Poppins;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: 1.63;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+    font-size: 25px;
+}
+.address{
+    font-family: Poppins;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+    height: 100px;
+    width: 400px;
+}
+.cuisines {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.88;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+}
+
+.menu {
+    padding: 0;
+    list-style: none;
+}
+
+.menuItem {
+    text-decoration: none;
+    margin-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+.item-desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+
+.closeBtn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.restName {
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.53;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+}
+.no_of_items{
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+}
+.alertMsg{
+    font-size: 20px;
+}

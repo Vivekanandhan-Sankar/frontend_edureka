@@ -1,0 +1,91 @@
+.mainImage{
+    width: 100%;
+    height: 400px;
+    margin: auto;
+}
+.logo{
+    background-color: white;
+    border-radius: 50%;
+    width: 67px;
+    height: 67px;
+    text-align: center;
+    margin: auto;
+    font-family: Poppins;
+    font-size: 43px;
+    color: red;
+
+}
+.imageContent{
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    text-align: center;
+}
+.imageText{
+    font-size: 32px;
+    font-family: Poppins;
+    color: white;
+    text-align: center;
+}
+.selectlocation{
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.select{
+    height: 38px;
+    width: 184px;
+    padding:5px;
+}
+.searchRestaurants{
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+}
+.searchRestaurantsInput{
+    height: 38px;
+    width: 330px;
+}
+.quickSearchHeader{
+    color: #192f60;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Poppins;
+    font-stretch: normal;
+}
+.quickSearchSubHeader{
+    font-family: Poppins;
+    font-stretch: normal;
+    color: #8c96ab;
+    font-size: 20px;
+}
+.BottomPortion{
+    margin-top: 35px;
+}
+.box{
+    box-shadow: 5px 9px 10px 0 rgba(0, 0, 0, 0.16);
+    height: 160px;
+    position: relative;
+    margin-top: 20px;
+}
+.boxText{
+    position: absolute;
+    top:17px;
+    width: auto;
+    left: 173px;
+    padding-right: 5px;
+}
+.boxHeading{
+    font-family: Poppins;
+    color: #314777;
+    font-weight: bold;
+}
+.boxContent{
+    font-family: Poppins;
+    color: #8c96ab;
+}
+.Image{
+    height: 160px;
+    width: 160px;
+}
