@@ -3,6 +3,9 @@ import axios from 'axios';
 import '../CSS_folder/imageContent.css';
 import {withRouter} from 'react-router-dom';
 
+const constant = require('../constant');
+const API_URL = constant.API_URL;
+
 class ImageContent extends Component{
 
     constructor(){
