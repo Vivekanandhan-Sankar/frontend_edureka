@@ -7,10 +7,7 @@ import axios from 'axios';
 
 const constant = require('../constant');
 const API_URL = constant.API_URL;
-<<<<<<< HEAD
-=======
 
->>>>>>> 5c875d41425f92bd7dafb8cfb6b1ba36a1807516
 class Home extends Component{
     constructor(){
         super();
