@@ -31,7 +31,11 @@ const customStylesForOrders = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         border: '2px solid tomato',
-        width: '400px'
+        width: '400px',
+        padding: '20px',
+        background: 'white',
+        overflow: 'auto',
+        position: 'absolute'
     }
 };
 
@@ -228,6 +232,81 @@ class Header extends Component{
         }
         return food;
     }
+    getCheckSum = (data) => {
+        return fetch('http://localhost:1111/payment', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(result => {
+            return result.json();
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+    isObj = (val) => {
+        return typeof val === 'object';
+    }
+
+    isDate = (val) => {
+        return Object.prototype.toString.call(val) === '[object Date]';
+    }
+
+    stringifyValue = (value) => {
+        if (this.isObj(value) && !this.isDate(value)) {
+            return JSON.stringify(value);
+        } else {
+            return value;
+        }
+    }
+
+    builfForm = (details) => {
+        const { action, params } = details;
+
+        const form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', action);
+
+        Object.keys(params).forEach(key => {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', key);
+            input.setAttribute('value', this.stringifyValue(params[key]));
+            form.appendChild(input);
+        });
+        return form;
+    }
+
+    postTheInfo = (details) => {
+        const form = this.builfForm(details);
+        document.body.appendChild(form);
+        form.submit();
+        form.remove();
+    }
+
+    paymentHandler = (cost) => {
+        if (cost == 0) {
+            return;
+        }
+        const data = {
+            amount: cost,
+            email: 'XXXXXXXX@gmail.com'
+        };
+        this.getCheckSum(data)
+            .then(result => {
+                let information = {
+                    action: "https://securegw-stage.paytm.in/order/process", // URL of paytm server
+                    params: result
+                }
+                this.postTheInfo(information);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     render(){
         const {background, isLoginModalOpen, username, password, isLoggedIn, user, loginError, isSignUpModalOpen, firstName, lastName, signUpError,isOrderModalOpen,orders} =this.state;
@@ -319,7 +398,7 @@ class Header extends Component{
                         <input type="button" className="btn" onClick={this.resetSignUpForm} value="Cancel"/>
                     </form>
                 </Modal>
-                <Modal isOpen={isOrderModalOpen} style={customStylesForOrders}>
+                <Modal isOpen={isOrderModalOpen} style={customStylesForOrders} className="modal-dialog-scrollable modal-content">
                     <h4>Your Orders</h4>
                     <button onClick={this.closeOrderModal} className="bi bi-x closeBtn"></button>
                     { orders.length > 0
@@ -335,7 +414,14 @@ class Header extends Component{
                                     this.dishes(item)
                                 }
                                 <div className="orderCost float-end">Total Cost : <span className="orderCost2">&#8377; {item.cost}</span></div>
-                                <div className="orderCost mb-4">STATUS : <span className="orderStatus">Order Received</span></div>
+                                <div className="orderCost mb-4">STATUS : <span className="orderStatus">{item.status}</span></div>
+                                {
+                                    item.status === "Payment Not Done"
+                                    ?
+                                    <button className="btn btn-danger mb-4" style={{marginLeft:'36%'}} onClick={()=>this.paymentHandler(item.cost)}>Pay Now</button>
+                                    :
+                                    <div></div>
+                                }
                                 </>
                             )
                         })

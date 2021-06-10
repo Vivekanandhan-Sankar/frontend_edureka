@@ -21,7 +21,11 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         border: '2px solid tomato',
-        width: '350px'
+        width: '370px',
+        padding: '20px',
+        background: 'white',
+        overflow: 'auto',
+        position: 'absolute'
     }
 };
 
@@ -45,7 +49,8 @@ class Details extends Component{
             dishesArr:[],
             quantity:[],
             total:0,
-            order:[]
+            order:[],
+            paymentStatus:"Payment Not Done"
         };
     }
     componentDidMount() {
@@ -217,13 +222,14 @@ class Details extends Component{
         let user=localStorage.getItem("user");
         user = JSON.parse(user);
         const userId = user._id;
-        const { restaurantName,dishesArr,quantity,totalPrice} = this.state;
+        const { restaurantName,dishesArr,quantity,totalPrice,paymentStatus} = this.state;
         const obj = {
             userId:userId,
             restaurantName:restaurantName,
             dishesArr:dishesArr,
             quantity:quantity,
-            total:totalPrice
+            total:totalPrice,
+            paymentStatus:paymentStatus
         }
         axios({
             method:'POST',
@@ -249,7 +255,7 @@ class Details extends Component{
             <>
                 <div className="container">
                     <div className="imageGallery pt-5">
-                        <Carousel autoPlay={true} interval={2000} dynamicHeight={false} showThumbs={false} infiniteLoop={true}>
+                        <Carousel autoPlay={true} interval={2000} showArrows={false} dynamicHeight={false} showThumbs={false} infiniteLoop={true}>
                             <div className="image">
                                 <img src={require('../assets/nightlife.png').default} alt="homeImage"/>
                             </div>
@@ -310,7 +316,7 @@ class Details extends Component{
                         </TabPanel>
                     </Tabs>
                 </div>
-                <Modal isOpen={isMenuModalOpen} style={customStyles}>
+                <Modal isOpen={isMenuModalOpen} style={customStyles} className="modal-dialog-scrollable">
                             <h3 className="restName">{restaurantName}</h3>
                             <button onClick={this.closeMenuHandler} className="bi bi-x closeBtn"></button>
                             <ul className="menu">
@@ -334,8 +340,8 @@ class Details extends Component{
                                 }
                             </ul>
                             <div className="mt-3 restName fs-4">
-                                Subtotal  <span className="m-4">&#8377;{ totalPrice }</span>
-                                <button className="btn btn-danger float-end" onClick={()=>this.handlingOrder()}>Pay Now</button>
+                                Subtotal  <span className="m-4">&#8377;{ totalPrice }</span><br/>
+                                <button className="btn btn-danger mt-1 mx-5" onClick={()=>this.handlingOrder()}>ADD to cart & Pay Now</button>
                             </div>
                         </Modal>
                 </div>

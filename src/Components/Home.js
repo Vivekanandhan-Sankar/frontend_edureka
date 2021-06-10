@@ -5,7 +5,8 @@ import QuickSearch from './QuickSearch';
 
 import axios from 'axios';
 
-
+const constant = require('../constant');
+const API_URL = constant.API_URL;
 class Home extends Component{
     constructor(){
         super();
