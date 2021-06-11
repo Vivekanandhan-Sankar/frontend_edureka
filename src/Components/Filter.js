@@ -191,7 +191,7 @@ class Filter extends Component {
                         { mealTypeName } Places in { selectedCityName }
                     </div>
                     <div className="row">
-                        <div className="col-lg-3 col-md-3 col-10 filterSection">
+                        <div className="col-lg-3 col-md-3 col-10 filterSection mb-3">
                             <div className="sectionHeading">Filters</div>
                             <div className="sectionSubHeading">Select Location</div>
                             <select className="locationSelection" onChange={(e) => this.handleLocationChange(e)}>
