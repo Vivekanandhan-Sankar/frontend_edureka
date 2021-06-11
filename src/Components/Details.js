@@ -216,9 +216,9 @@ class Details extends Component{
             });
     }
     handlingOrder = () => {
-        this.paymentHandler();
         const isLoggedIn = localStorage.getItem("isLoggedIn");
         if(isLoggedIn){
+        this.paymentHandler();
         let user=localStorage.getItem("user");
         user = JSON.parse(user);
         const userId = user._id;
