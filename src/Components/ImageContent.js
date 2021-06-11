@@ -105,8 +105,9 @@ class ImageContent extends Component{
                       this.renderSuggestions()
                   }
               </div>
+             <div className="msg text-white" >Kindly Select Location and then Search for restaraunts</div>
            </div>
-           <div className="msg text-white" >Kindly Select Location and then Search for restaraunts</div>
+           
             </>
         );
     }
