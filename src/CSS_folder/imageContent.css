@@ -14,7 +14,10 @@
     background: white;
     z-index: 100000;
 }
-
+.msg{
+    font-size: 17px;
+    font-weight: 600;
+}
 .suggestionsBox li {
     display: flex;
     position: relative;

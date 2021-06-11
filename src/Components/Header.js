@@ -35,7 +35,9 @@ const customStylesForOrders = {
         padding: '20px',
         background: 'white',
         overflow: 'auto',
-        position: 'absolute'
+        position: 'absolute',
+        'overflow-y': 'scroll',
+        height : 'fit-content'
     }
 };
 
@@ -233,7 +235,7 @@ class Header extends Component{
         return food;
     }
     getCheckSum = (data) => {
-        return fetch('http://localhost:1111/payment', {
+        return fetch(`${API_URL}/payment`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -344,34 +346,13 @@ class Header extends Component{
                         loginError ? <div className="alert alert-danger">{loginError}</div> : null
                     }
                     <label className="form-label">Username:</label>
-                    <input type="text" value={username} className="form-control" onChange={(event) => this.handleChange(event, 'username')} />
+                    <input type="text" value={username} placeholder="E-mail id is your username" className="form-control" onChange={(event) => this.handleChange(event, 'username')} />
                     <br />
                     <label className="form-label">Password:</label>
-                    <input type="password" value={password} className="form-control" onChange={(event) => this.handleChange(event, 'password')} />
+                    <input type="password" value={password} placeholder="Password" className="form-control" onChange={(event) => this.handleChange(event, 'password')} />
                     <br/>
                     <br/>
-                    <FacebookLogin 
-                            appId="1120641251750699"
-                            textButton="Continue with Facebook"
-                            fields="name,email,picture"
-                            size="metro"
-                            callback={this.faceBookLoginHandler}
-                            cssClass="fb"
-                            icon="bi bi-facebook p-2"
-                        />
-                        <br/>
-                        <br/>
-                        <GoogleLogin 
-                            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                            buttonText="Continue with Google"
-                            onSuccess={this.responseSuccessGoogle}
-                            onFailure={this.responseFailureGoogle}
-                            cookiePolicy={'single_host_origin'}
-                            icon="true"
-                            className="google"
-                        />
-                        <br/>
-                        <br/>
+                    
                     <input type="button" className="btn btn-primary" onClick={this.handleLogin} value="Login"/>
                     <input type="button" className="btn" onClick={this.resetLoginForm} value="Cancel"/>
                     </form>

@@ -106,6 +106,7 @@ class ImageContent extends Component{
                   }
               </div>
            </div>
+           <div className="msg text-white" >Kindly Select Location and then Search for restaraunts</div>
             </>
         );
     }
